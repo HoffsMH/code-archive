@@ -1,0 +1,410 @@
+.nv {
+	display: none;
+}
+
+.row-eq-height {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+.flex-col {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-align-items: stretch;
+	    -ms-flex-align: stretch;
+	        align-items: stretch;
+	
+
+}
+
+.flex-col.colright {
+	float: right;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: row-reverse;
+	    -ms-flex-direction: row-reverse;
+	        flex-direction: row-reverse;
+	-webkit-align-items: stretch;
+	    -ms-flex-align: stretch;
+	        align-items: stretch;
+
+}
+
+
+/*=============*/
+
+.headerbg {
+	background-color: #002656;
+	transition: -webkit-filter 1s, filter 1s;
+	
+}
+.headerbginner {
+	background-size: cover;
+	background-repeat: repeat-y;
+	background-position: center center;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+}
+/*nav styling mostly overriding bootstrap defaults*/
+#mainnav {
+	height: 30px;
+	background-color: rgba(0,0,0, 0);
+	
+	border:none;
+	z-index: 9999;
+	
+}
+
+/*logo styling*/
+.mylogodiv {
+	
+	box-sizing: content-box;
+	display: block;
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	        transform: translate(-50%, -50%);
+	
+	
+	z-index: 1000;
+	
+
+}
+/*chevron*/
+.mychevrondiv {
+	opacity: 0;
+	font-size: 30px;
+	color: #ffffff;
+	box-sizing: content-box;
+	display: block;
+	position: absolute;
+	top: 85%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	        transform: translate(-50%, -50%);
+	
+	
+	z-index: 1000;
+	
+
+}
+.mylogosvg {
+	opacity:0;
+
+}
+/*logo sub title styling*/
+.mylogosubtitle {
+	box-sizing: content-box;
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+	font-family: 'Comfortaa';
+	font-size: 40px;
+	font-weight: 300;
+	color: white;
+	opacity:0;
+
+}
+.mylogosubsubtitle {
+	box-sizing: content-box;
+	display: block;
+	opacity:0;
+	margin: 0 auto;
+	text-align: center;
+	font-family: 'Comfortaa';
+	font-size: 15px;
+	font-weight: 300;
+	color: white;
+
+	z-index: 2000;
+
+}
+#mainnav {
+	opacity: 0;
+}
+
+
+
+/*making my bootstrap layout full width*/
+.container-full {
+  	margin: 0 auto;
+  	width: 100%;
+  
+
+  	z-index: 9999;
+  	position: relative;
+  	font-family: 'Comfortaa';
+
+
+
+  	/*from css gen*/
+  	background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 39%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(39%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 39%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 39%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 39%,rgba(255,255,255,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 39%,rgba(255,255,255,1) 100%); /* W3C */
+}
+.container-full a {
+	color: #000000;
+	text-decoration: underline;
+}
+.container-full .mhfooter a {
+	color: #ffffff;
+	text-decoration: underline;
+
+}
+/*adding a class to center my BS columns*/
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+/*heres where we set the scaffolding to transparent and get rid of the pesky padding*/
+.col-md-6, .col-md-12 {
+	background-color: rgba(0,0,0,0);
+	position: relative;
+
+	padding: 0;
+}
+.colinner, .colinner-half {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 15px;
+	line-height: 25px;
+	
+}
+.colinner-half {
+
+	background-color: #ffffff;
+	width: 93%;
+	padding:15px;
+	text-align: center;
+	
+}
+.colinner-half ul {
+	list-style-type: none;
+	text-align: center;
+	padding: 0px;
+}
+.colinner-half ul li {
+	text-align: center;
+	position: relative;
+	display: block;
+
+}
+
+.colinner-half .mhlilink {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.mhlilink, .mhlilink img, .mhlilink h2{
+	position: relative;
+}
+
+.mhlilink a {
+	text-decoration: none;
+
+}
+
+.mhmylinkh2 {
+	position: relative;
+	font-size: 35px;
+	font-weight: 500;
+	line-height: 40px;
+	margin-top: 20px;
+	padding-bottom: 25px;
+}
+.mhmylinkh2 a {
+	text-decoration: none;
+}
+
+
+.colinner {
+	background-color: #ffffff;
+	width: 100%;
+	padding:30px;
+
+}
+
+
+
+/**/
+.parallaxParent {
+		height: 100vh;
+		/*overflow: hidden;*/
+		position: relative;
+}
+.parallaxParent > .headerbg {
+	height: 150%;
+	position: relative;
+	
+}
+/*content styling*/
+.mhaboutme, .mhmyinterests, .mhcontactme {
+	/*background-color: #cccccc;*/
+	font-size: 20px;
+	
+	text-align: center;
+
+}
+.mhaboutme .mhaboutmetitle {
+	margin-top: 0px;
+}
+.mhmyinterests .colinner, .mhcontactme .colinner {
+	
+	padding-top: 0px;
+}
+.myinterestslist {
+	text-align: center;
+}
+
+.mhh1 {
+	font-weight: 500;
+	font-size: 50px;
+	margin: 0;
+}
+.mhh2 {
+	font-weight: 300;
+	font-size: 30px;
+	margin: 0;	
+}
+.mhlinks {
+	text-align: center;
+	font-size: 40px;
+}
+
+.mhspacer1 {
+	min-height: 100px;
+	background-color: rgba(0,0,0,0);
+}
+/*PROJECT <hr>*/
+#MyProjects {
+	text-align: center;
+}
+.projectTitleRow .colinner {
+	padding-bottom: 0;
+}
+.mhprojectrow .col-md-6 {
+	position: relative;
+	min-height: 100px;
+}
+.mhprojectrow {
+	position: relative;
+	min-height: 250px;
+	max-height: 300px;
+}
+.mhpimagewrapper {
+	display: flex;
+
+}
+.prjimage {
+	max-width: 100%;
+	box-shadow: 0px 1px 4px 0px #ADADAD;
+
+}
+
+/*.mhprojectrow img {
+	position: absolute;
+ 	max-height: 100%;
+ 	box-shadow: 0px 1px 4px 0px #ADADAD;
+}*/
+
+.booty {
+	width: 100%;
+	background-image: url("../images/KnowpageSlide.jpg");
+	background-size: contain;
+	background-repeat: no-repeat;
+		
+}
+
+
+/*footer styling*/
+.mhfooter {
+	position: relative;
+	background-color: rgba(0,0,0,0);
+	/*background-image: url("../images/headerbg.jpg");*/
+	background-size: cover;
+	min-height: 200px;
+	color: #ffffff;
+	font-weight: 100;
+	font-size: 20px;
+	text-align: center;
+	
+}
+.mhfooterbg {
+	position: absolute;
+	height: 30%;
+	width: 100%;
+	background-size: cover;
+	filter: blur(20px);
+	-webkit-filter:blur(15px);
+	filter: blur(15px);
+	/*z-index:0;*/
+	background-image: url("../images/headerbg.jpg");
+	overflow: hidden;
+
+}
+.mhfootercontent {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	padding-top: 40px;
+	font-size: 15px;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+.footerbgrow .mhfooterbg {
+	overflow: hidden;
+	max-height: 300px;
+}
+
+
+
+
+
+@media (max-width: 990px)  {
+	.flex-col.colright {
+		/*clear: both;
+		float: none;*/
+	}
+	
+	.row-eq-height {
+		/*display: block;*/
+	}
+
+	.colinner-half {
+		width: 100%;
+	}
+
+	.colinner, .colinner-half {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 20px;
+	line-height: 25px;
+	
+	}
+	
+
+}
+
+@media (max-width: 768px) {
+	.navbar-default .navbar-nav>li>a {
+	  color: #ffffff;
+	  text-shadow: none;
+	  font-family: 'Comfortaa';
+	  font-weight: 100;
+	  font-size: 23px;
+	}
+
+}
+
+.col-md-6 {
+	
+	overflow: hidden;
+}

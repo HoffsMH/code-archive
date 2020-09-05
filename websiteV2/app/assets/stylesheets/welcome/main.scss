@@ -1,0 +1,150 @@
+.nv {
+  display: none;
+}
+/*=============*/
+
+.headerbg {
+  background-color: #002656;
+  transition: -webkit-filter 1s, filter 1s;
+  max-height: 135vh;
+}
+
+.headerbginner {
+  background: image-url("headerbg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100%;
+  width: 100%;
+  position: fixed ;
+  opacity: 0;
+  max-height: 135vh;
+}
+/*logo styling*/
+.mylogodiv {
+  box-sizing: content-box;
+  display: block;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+.row-eq-height {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+.col-eq-height {
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+}
+
+/*chevron*/
+.mychevrondiv {
+  opacity: 0;
+  font-size: 30px;
+  color: #ffffff;
+  box-sizing: content-box;
+  display: block;
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+.mylogosvg {
+  opacity:0;
+}
+/*logo sub title styling*/
+.mylogosubtitle {
+  box-sizing: content-box;
+  margin: 0 auto;
+  display: block;
+  padding-bottom: 50px;
+  text-shadow: 2px 2px 5px #000033;
+
+  text-align: center;
+  font-family: 'Comfortaa';
+  font-size: 40px;
+  font-weight: 300;
+  color: white;
+
+  opacity:0;
+  position: relative;
+  z-index: 2000;
+}
+.container-full {
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  font-family: 'Comfortaa';
+  background: #fff;
+}
+
+.container-full .mhfooter a {
+  color: #ffffff;
+  text-decoration: underline;
+
+}
+
+/*heres where we set the scaffolding to transparent and get rid of the pesky padding*/
+.col-md-6, .col-md-12 {
+  overflow: hidden;
+  background-color: rgba(0,0,0,0);
+  position: relative;
+  padding: 0;
+}
+
+/**/
+.parallaxParent {
+  height: 100vh;
+  /*overflow: hidden;*/
+  position: relative;
+}
+.parallaxParent > .headerbg {
+  height: 150%;
+  position: relative;
+
+}
+
+.card {
+  font-family: 'Source Sans Pro', sans-serif;
+  background: white;
+}
+
+#main-card {
+  text-align: center;
+  margin-top: 20px;
+  #card-content {
+    height: 90%;
+  }
+}
+
+#second-contact-card {
+  text-align: center;
+}
+
+.about-me {
+  padding-top: 5%;
+  padding-right: 7%;
+  padding-left: 7%;
+  font-size: 15px;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.photo-div {
+  padding-top: 10%;
+}
+
+#content {
+  min-height: 80vh;
+}

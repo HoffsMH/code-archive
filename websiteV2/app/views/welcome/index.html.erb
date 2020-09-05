@@ -1,0 +1,76 @@
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+<!-- this img element is hidden and is used to load the image -->
+<!-- the image is applied to  the div tag later -->
+<img class="nv bgimage" src="images/headerbg.jpg" height="1540" width="2310">
+<%= render partial: 'navbar' %>
+
+
+<div id="parallax1" class="parallaxParent">
+  <div class="mylogodiv col-md-4">
+    <%= render partial: 'svg_logo' %>
+  </div>
+
+
+  <div  class="headerbg">
+    <div class="headerbginner"></div>
+    <div href="#AboutMe" class="mychevrondiv glyphicon glyphicon-chevron-down"></div>
+  </div>
+</div>
+<div class="mylogosubtitle">
+  Matthew Hecker
+</div>
+
+<div class="spacer s1 container container-full" id="content">
+  <div id="main-card">
+    <div id="card-content"  class="row row-eq-height">
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-12 photo-div">
+            <%= image_tag "hecker_matt.jpg", class: "img-circle" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="about-me">
+              I am Matt, a junior software developer. <br>
+              My knowledge is mostly in Rails but I'm currently learning Node and Ember. I am interested in hearing about anything new, currently in Denver, CO.
+              Feel free to contact me for some coffee or work, <br>I love to chat!
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-eq-height">
+        <div class="row contact-area">
+          <div class="col-xs-12 col-sm-12 col-md-12 card ">
+            <a href="/blog" class="contact-link"><span class="blog-contact-icon">Blog</span></a>
+            <a href="https://github.com/HoffsMH" class="contact-link"><i class="fa fa-github contact-icon"></i></a>
+            <a href="https://www.linkedin.com/in/matthew-hecker-573568b8
+" class="contact-link"><i class="fa fa-linkedin-square contact-icon"></i></a>
+          </div>
+        </div>
+        <div class="row contact-area">
+          <div id="second-contact-card" class="col-xs-12 col-sm-12 col-md-12 card ">
+            <a href="mailto:Matt@mhecker.com" class="contact-link"><i class="fa fa-envelope sm-contact-icon"></i>: Matt@mhecker.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- First content row -->
+</div>
+<!-- JS -->
+<!-- GSAP -->
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.1/TweenMax.min.js"></script>
+
+<!-- ScrollMagic -->
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+
+<!-- ScrollMagics GSAP plugin -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js"></script>
+
+<!-- Jquery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<!-- bootstrap -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>

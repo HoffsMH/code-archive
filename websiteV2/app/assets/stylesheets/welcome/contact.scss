@@ -1,0 +1,32 @@
+.contact-icon {
+  font-size: 5em;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+
+.blog-contact-icon {
+  line-height: 5em;
+  vertical-align: 10%;
+  font-weight: 700;
+  font-size: 2em;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.contact-area {
+  a {
+    text-decoration: none;
+    color: #333;
+    &:hover {
+      color: #6A869B;
+    }
+  }
+}
+
+.sm-contact-icon {
+  font-size: 2em;
+  margin-left: 10px;
+  margin-right: 10px;
+}

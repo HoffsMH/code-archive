@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/blog/stylesheets/shiori.css">
+    <link href='//fonts.googleapis.com/css?family=Montserrat:700,400' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="canonical" href="http://www.mhecker.com/blog/pry-neatos/">
+    <link rel="shortcut icon" href="/blog/favicon.ico">
+    <title>Pry neato's | HoffsMH</title>
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Additions to <head> tags go here. -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  </head>
+  <body>
+  
+    <div class="navbar navbar-inverse navbar-static-top">
+  
+      <div class="container">
+        <div class="navbar-header">
+          <div class="navbar-toggle-wrapper visible-xs">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".js-navbar-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <a href="/blog/" class="navbar-brand">HoffsMH</a>
+        </div>
+        <div class="collapse navbar-collapse js-navbar-collapse">
+          <ul class="navbar-nav nav" data-purplecoat="shiori" data-purplecoat-label="nav.html">
+            <li><a href="/blog/archive">Archive</a></li>
+
+          </ul>
+          <ul class="navbar-nav nav navbar-right" data-purplecoat="shiori" data-purplecoat-label="nav-right.html">
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        
+          <div class="col-sm-8">
+            <div class="post-header">
+  <h1 class="post-title-main">Pry neato's</h1>
+  <!-- Feel free to remove this div. Uses purplecoat: http://ellekasai.github.io/purplecoat.js -->
+<div data-purplecoat="shiori" data-purplecoat-label="post-header.html">
+<p class="text-muted">19 Aug 2015</p>
+</div>
+
+</div>
+<div class="post-content">
+  <p>This post is an adaptation of a lightning talk I gave. Its basically just some of the tools
+and tricks I&#39;ve learned about while using pry and ruby. Hopefully I will come back to it later and make it more like a blog and less like a talk outline. But for now just posting this for some friends!.</p>
+
+<p>There is some accompanying demo code available at <a href="https://github.com/HoffsMH/pry-lightning-talk">github</a></p>
+
+<hr>
+
+<h1>Basic neato&#39;s</h1>
+
+<p>Some random things I&#39;ve found useful that can be used with pry out of the box.
+* <code>whereami</code> to remember where you are in your code</p>
+
+<ul>
+<li><code>.&lt;command&gt;</code> executes terminal commands
+
+<ul>
+<li><code>.ls</code></li>
+<li><code>.clear</code></li>
+<li><code>.git diff</code></li>
+<li><code>.git status</code></li>
+<li>and yes we can get crazy <code>.ruby &lt;some-other-file&gt;</code></li>
+</ul></li>
+</ul>
+
+<p>and assuming your pry doesn&#39;t completely crash when an exception occurs because you are using pry-rescue.
+* <code>wtf</code> and <code>wtf?</code> to display stack traces for an exception</p>
+
+<ul>
+<li><p><code>cat -ex</code> to bring you to the line in your code where the exception occurs</p></li>
+<li><p>We can edit a file while in pry then continue to run through it with <code>edit &lt;filename&gt;</code></p>
+
+<ul>
+<li>but first we should probably set out editor with<br>
+<code>Pry.config.editor = &#39;atom&#39;/&#39;vim&#39;/&#39;whathaveyou&#39;</code></li>
+<li>or just include that line in <code>.pryrc</code> in our home directory</li>
+</ul></li>
+</ul>
+
+<h2>Other Neato&#39;s</h2>
+
+<p>Cool ways of using pry.
+* <code>binding.pry</code> is just ruby.</p>
+
+<p>So we can put a condition on whether or not it runs for when we know when something is going wrong but don&#39;t want to type exit 231 times.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby">  <span class="p">[</span><span class="o">*</span><span class="mi">1</span><span class="p">.</span><span class="nf">.</span><span class="mi">1000</span><span class="p">].</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">element</span><span class="o">|</span>
+    <span class="k">if</span> <span class="n">element</span> <span class="o">==</span> <span class="mi">232</span>
+      <span class="nb">binding</span><span class="p">.</span><span class="nf">pry</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+</code></pre></div>
+<ul>
+<li>We can also get pry to be the default debugger in rails by including <code>pry-rails</code> instead of just <code>pry</code> in your gemfile</li>
+</ul>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby">
+  <span class="c1">#gemfile</span>
+  <span class="n">group</span> <span class="ss">:development</span><span class="p">,</span> <span class="ss">:test</span> <span class="k">do</span>
+    <span class="n">gem</span> <span class="s1">'pry-rails'</span>
+  <span class="k">end</span>
+
+</code></pre></div>
+<p><code>bundle</code> then type <code>rails c</code> and you&#39;re in pry and not irb!</p>
+
+<h2>Things to install and try</h2>
+
+<ul>
+<li><h2><a href="https://github.com/ariabov/pry-toys">Pry-toys</a></h2>
+
+<ul>
+<li>For when you need to test something for yourself really quick. Really usefull for understanding enumerables.</li>
+</ul>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"> gem install pry-toys
+</code></pre></div>
+<ul>
+<li>#### Try</li>
+</ul>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Hash</span><span class="p">.</span><span class="nf">toy</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># creates a toy has</span>
+<span class="no">Array</span><span class="p">.</span><span class="nf">toy</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="no">Time</span><span class="p">)</span> <span class="c1"># creates a toy array of Time objects</span>
+</code></pre></div></li>
+<li><h2><a href="https://github.com/deivid-rodriguez/pry-byebug">Pry-byebug</a></h2>
+
+<ul>
+<li>for stepping through code.
+Serves as a fine comb to step through and understand code one line at a time.</li>
+<li>was originally a fork of <a href="https://github.com/nixme/pry-debugger">pry-debugger</a> which <a href="http://stackoverflow.com/questions/24395453/gem-install-debugger-error">doesn&#39;t work past Ruby version 2.x</a>
+<code>bash
+gem install pry-byebug
+</code></li>
+<li>#### Try</li>
+</ul>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">step</span> <span class="c1"># Moves through code line by line</span>
+<span class="n">continue</span> <span class="c1"># completes rest of code</span>
+</code></pre></div></li>
+<li><h2><a href="https://github.com/ConradIrwin/pry-rescue">Pry-rescue</a></h2>
+
+<ul>
+<li>from the author of this gem</li>
+</ul>
+
+<p>&quot;start a pry session when something goes wrong&quot;</p>
+
+<p>this is actually a two parter</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">gem install pry-rescue
+gem install pry-stack_explorer
+</code></pre></div>
+<p>both must be installed to work properly
+* #### Try</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">rescue &lt;problematic ruby file&gt;
+</code></pre></div>
+<h4>and yes it can be used with rails</h4>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">rescue rails s
+</code></pre></div></li>
+</ul>
+
+</div>
+<div class="post-footer">
+  <!-- Feel free to remove this div. Uses purplecoat: http://ellekasai.github.io/purplecoat.js -->
+<div data-purplecoat="shiori" data-purplecoat-label="post-footer.html">
+</div>
+
+</div>
+
+  
+    <div class="post-navs row">
+      
+      
+        <div class="col-md-6 post-nav">
+          <h3 class="section-header">
+            Newer
+            
+              <span class="text-muted"> &middot; </span>
+              <a href="/blog/archive">View Archive (3)</a>
+            
+          </h3>
+          <h2 class="post-title-link"><a href="/blog/keeping-a-programming-notebook/">Keeping a programming notebook</a></h2>
+          <p>Up until relatively recently I had not been embracing the &quot;programmers notebook&quot;. But it has a hold on me now.
+I plan to go over what changed and how I got into the note-taking groove.
+I also plan to go into why, in my opinion, pen and paper actually trumps all the other tools and mediums for note taking, even when, and perhaps especially when
+the subject is software design.</p>
+
+        </div>
+      
+    </div>
+  
+
+
+          </div>
+          <div class="col-sm-4">
+            <!-- Feel free to remove this div. Uses purplecoat: http://ellekasai.github.io/purplecoat.js -->
+<div data-purplecoat="shiori" data-purplecoat-label="sidebar.html">
+  <h3>
+    Author
+  </h3>
+
+  <p>
+    <div class="media">
+      <img src="https://avatars2.githubusercontent.com/u/10203160?v=2&s=100" alt="Mhecker" class="pull-left">
+      <div class="media-body mh-side-bar">
+        <h4 class="media-heading">Matthew Hecker</h4>
+        <a href="https://github.com/HoffsMH"><i class="fa fa-github fa-3x"></i></a>
+      </div>
+    </div>
+  </p>
+
+</div>
+
+          </div>
+        
+      </div>
+      <div class="row footer">
+        <div class="col-sm-12 text-center">
+          <!-- Feel free to remove this div. Uses purplecoat: http://ellekasai.github.io/purplecoat.js -->
+<div data-purplecoat="shiori" data-purplecoat-label="footer.html">
+&copy;2016.
+Built with <a href="http://jekyllrb.com/">Jekyll</a> and
+<a href="https://github.com/ellekasai/shiori">Shiori Theme</a>.
+</div>
+        </div>
+      </div>
+    </div>
+    <script src="/blog/javascripts/jquery.min.js"></script>
+    <script src="/blog/javascripts/bootstrap.min.js"></script>
+    <script src="/blog/javascripts/purplecoat-min.js"></script>
+    <!-- Place your <script> tags here. -->
+
+<!-- Example: Twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+  </body>
+</html>
